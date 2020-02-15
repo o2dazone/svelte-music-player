@@ -11,9 +11,11 @@
 
   .container {
     display: grid;
-    grid-template-rows: var(--header-height) calc(
+    grid-template-rows:
+      var(--header-height) calc(
         100vh - var(--header-height) - var(--footer-height)
-      ) var(--footer-height);
+      )
+      var(--footer-height);
   }
 </style>
 

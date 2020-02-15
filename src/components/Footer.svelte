@@ -15,9 +15,8 @@
   }
 </style>
 
-
 <div class="container">
   <div class="duration">
-  <div class="tracking">&nbsp;</div>
-</div>
+    <div class="tracking">&nbsp;</div>
+  </div>
 </div>
