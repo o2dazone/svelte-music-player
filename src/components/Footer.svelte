@@ -33,6 +33,10 @@
     border-top: var(--control-size) solid transparent;
     border-bottom: var(--control-size) solid transparent;
     border-left: var(--control-size) solid #828282;
+
+    &:hover {
+      border-left-color: #d8fd35;
+    }
   }
 
   .play {
