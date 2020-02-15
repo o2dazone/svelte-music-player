@@ -1,6 +1,5 @@
 <script>
   export let playing = false;
-  export let playSong;
   export let song = {};
 
   let {
@@ -9,24 +8,35 @@
     album = "Homework EP",
     duration = "2:34"
   } = song;
+
+  const playSong = () => {
+    console.log("playing...");
+  };
 </script>
 
-<style>
+<style lang="scss">
+  %active {
+    b {
+      color: #009bfd;
+    }
+
+    em {
+      color: #d1d1d1;
+    }
+  }
+
   button {
+    text-align: left;
     background: 0;
     border: 0;
-  }
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px;
 
-  button:hover {
-    cursor: pointer;
-  }
-
-  .playing b {
-    color: #009bfd;
-  }
-
-  .playing em {
-    color: #d1d1d1;
+    &:hover {
+      cursor: pointer;
+      @extend %active;
+    }
   }
 
   b {
@@ -38,6 +48,14 @@
   em {
     font-style: normal;
     color: #828282;
+
+    span {
+      margin-left: 20px;
+    }
+  }
+
+  .playing {
+    @extend %active;
   }
 </style>
 
@@ -46,6 +64,6 @@
   <em>
     {artist}
     {#if album}: {album}{/if}
-    {duration}
+    <span>{duration}</span>
   </em>
 </button>

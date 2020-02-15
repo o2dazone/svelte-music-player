@@ -6,7 +6,6 @@
   .container {
     max-width: 500px;
     display: flex;
-    padding: 8px;
   }
 
   h1 {

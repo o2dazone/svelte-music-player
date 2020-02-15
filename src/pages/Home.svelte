@@ -8,9 +8,12 @@
   :root {
     --header-height: 80px;
     --footer-height: 60px;
+    --container-padding: 12px;
   }
 
   .container {
+    box-sizing: border-box;
+    padding: var(--container-padding);
     display: grid;
     grid-template-rows:
       var(--header-height) calc(
