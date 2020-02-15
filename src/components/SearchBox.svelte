@@ -5,7 +5,6 @@
 <style>
   form {
     display: flex;
-    padding: 8px;
     width: 100%;
   }
 
@@ -47,6 +46,6 @@
 </style>
 
 <form class={isFullPage && 'landing'}>
-  <input type="text" placeholder="Search for a song..." />
+  <input type="text" placeholder="Search for a song, artist or album" />
   <button type="submit">Search</button>
 </form>

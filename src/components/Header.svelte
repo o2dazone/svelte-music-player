@@ -4,10 +4,17 @@
 
 <style>
   .container {
-    width: 400px;
+    max-width: 500px;
+    display: flex;
+    padding: 8px;
+  }
+
+  h1 {
+    margin-right: 10px;
   }
 </style>
 
 <div class="container">
+  <h1>logo</h1>
   <SearchBox />
 </div>

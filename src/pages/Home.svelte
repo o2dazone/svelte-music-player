@@ -1,6 +1,7 @@
 <script>
   import Header from "components/Header";
   import Footer from "components/Footer";
+  import Songs from "components/Songs";
 </script>
 
 <style>
@@ -24,7 +25,9 @@
     <Header />
   </header>
 
-  <main />
+  <main>
+    <Songs />
+  </main>
 
   <footer>
     <Footer />
