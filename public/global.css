@@ -29,11 +29,14 @@ html, body {
 
 body {
   background: #1b1b1b;
-  overflow: hidden;
 }
 
 body * {
   margin: 0;
   padding: 0;
   font-family: "Open Sans";
+}
+
+button:hover {
+  cursor: pointer;
 }

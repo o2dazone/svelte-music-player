@@ -1,6 +1,6 @@
 <script>
   export let playing = false;
-  export let song = {};
+  let song = {};
 
   let {
     title = "Around the world",
@@ -15,16 +15,6 @@
 </script>
 
 <style lang="scss">
-  %active {
-    b {
-      color: #009bfd;
-    }
-
-    em {
-      color: #d1d1d1;
-    }
-  }
-
   button {
     text-align: left;
     background: 0;
@@ -34,8 +24,13 @@
     margin-bottom: 8px;
 
     &:hover {
-      cursor: pointer;
-      @extend %active;
+      b {
+        color: #e1017a;
+      }
+
+      em {
+        color: #d1d1d1;
+      }
     }
   }
 
@@ -55,7 +50,13 @@
   }
 
   .playing {
-    @extend %active;
+    b {
+      color: #009bfd;
+    }
+
+    em {
+      color: #d1d1d1;
+    }
   }
 </style>
 

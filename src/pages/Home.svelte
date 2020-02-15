@@ -6,18 +6,21 @@
 
 <style>
   :root {
-    --header-height: 80px;
-    --footer-height: 60px;
+    --header-height: 43px;
+    --footer-height: 23px;
     --container-padding: 12px;
+    --grid-gap: 10px;
   }
 
   .container {
-    box-sizing: border-box;
+    grid-gap: 10px;
     padding: var(--container-padding);
+    box-sizing: border-box;
     display: grid;
     grid-template-rows:
       var(--header-height) calc(
-        100vh - var(--header-height) - var(--footer-height)
+        100vh - var(--header-height) - var(--footer-height) -
+          calc(2 * var(--container-padding)) - calc(2 * var(--grid-gap))
       )
       var(--footer-height);
   }

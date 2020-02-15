@@ -10,6 +10,7 @@
 
   h1 {
     margin-right: 10px;
+    color: #d8fd35;
   }
 </style>
 
