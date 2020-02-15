@@ -3,7 +3,7 @@ import Landing from "pages/Landing";
 
 const routes = {
   "/": Landing,
-  "/search": Home
+  "/:term?": Home
 };
 
 export default routes;

@@ -21,7 +21,9 @@ export default {
       resolve: ['.svelte', '.js'],
       entries: [
         { find: /^components\/(.*)/, replacement: 'src/components/$1.svelte' },
-        { find: /^pages\/(.*)/, replacement: 'src/pages/$1.svelte' }
+        { find: /^pages\/(.*)/, replacement: 'src/pages/$1.svelte' },
+        { find: 'helpers', replacement: 'src/helpers.js' },
+        { find: 'store', replacement: 'src/store.js' }
       ]
     }),
 		svelte({

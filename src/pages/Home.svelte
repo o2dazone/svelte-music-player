@@ -2,6 +2,8 @@
   import Header from "components/Header";
   import Footer from "components/Footer";
   import Songs from "components/Songs";
+  import appState from "store";
+  export let params = {};
 </script>
 
 <style>
@@ -28,7 +30,7 @@
 
 <div class="container">
   <header>
-    <Header />
+    <Header {params} />
   </header>
 
   <main>

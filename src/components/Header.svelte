@@ -1,5 +1,6 @@
 <script>
   import SearchBox from "components/SearchBox";
+  export let params;
 </script>
 
 <style>
@@ -16,5 +17,5 @@
 
 <div class="container">
   <h1>logo</h1>
-  <SearchBox />
+  <SearchBox {params} />
 </div>

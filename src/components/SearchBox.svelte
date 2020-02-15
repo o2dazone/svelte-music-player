@@ -1,8 +1,23 @@
 <script>
+  import { push } from "svelte-spa-router";
+
   export let isFullPage = false;
+  export let params = {};
+
+  let { term } = params;
+
+  const onSearch = e => {
+    e.preventDefault();
+
+    const searchTerm = e.currentTarget.searchTerm.value;
+
+    if (searchTerm) {
+      push(`/${searchTerm}`);
+    }
+  };
 </script>
 
-<style>
+<style lang="scss">
   form {
     display: flex;
     width: 100%;
@@ -18,10 +33,10 @@
     width: 100%;
     padding: 8px 0;
     font-size: 1.2rem;
-  }
 
-  input::placeholder {
-    font-style: italic;
+    &::placeholder {
+      font-style: italic;
+    }
   }
 
   button {
@@ -34,18 +49,24 @@
     padding: 4px 10px;
   }
 
-  .landing input {
-    text-align: center;
-    text-indent: 0;
-    font-size: 1.5rem;
-  }
+  .landing {
+    input {
+      text-align: center;
+      text-indent: 0;
+      font-size: 1.5rem;
+    }
 
-  .landing button {
-    font-size: 1.4rem;
+    button {
+      font-size: 1.4rem;
+    }
   }
 </style>
 
-<form class={isFullPage && 'landing'}>
-  <input type="text" placeholder="Search for a song, artist or album" />
+<form class={isFullPage && 'landing'} on:submit={onSearch}>
+  <input
+    type="text"
+    name="searchTerm"
+    placeholder="Search for a song, artist or album"
+    value={term ? term : ''} />
   <button type="submit">Search</button>
 </form>
