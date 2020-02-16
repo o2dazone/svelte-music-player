@@ -38,8 +38,8 @@
 
   const startAudioLoop = () => {
     interval = setInterval(() => {
-      currentTime = audio.currentTime;
-    }, 250);
+      currentTime = audio.currentTime.toFixed(2);
+    }, 350);
   };
 
   const killAudioLoop = () => {
@@ -137,14 +137,16 @@
 
 <div class="container">
   {#if audio && loaded}
-    <button class:playing type="button" on:click={togglePlayPause}>play</button>
+    <button class:playing type="button" on:click={togglePlayPause}>
+      {playing ? 'pause' : 'play'}
+    </button>
 
     <span>{makeDurationFromMs(currentTime * 1000)}</span>
 
     <div class="duration">
       <div
         class="tracking"
-        style={`width:${(currentTime / duration) * 100}%`} />
+        style={`width:${((currentTime / duration) * 100).toFixed(1)}%`} />
     </div>
 
     <span>{makeDurationFromMs(duration * 1000)}</span>
