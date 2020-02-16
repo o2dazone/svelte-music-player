@@ -1,5 +1,60 @@
 <script>
+  import { onMount, onDestroy } from "svelte";
+  import { getStreamUrl, makeDurationFromMs } from "helpers";
+
   let playing = false;
+  let loaded = false;
+  let audio;
+  let interval;
+  let currentTime;
+  let duration;
+
+  onMount(async () => {
+    const id = "67260897-df82-3514-9e96-9f3ddee81883";
+    if (id) {
+      makeAudio(await getStreamUrl(id));
+    }
+  });
+
+  onDestroy(() => {
+    killAudioLoop();
+    audio.removeEventListener("loadeddata");
+  });
+
+  const makeAudio = url => {
+    audio = new Audio(url);
+    audio.addEventListener("loadeddata", () => {
+      loaded = true;
+      currentTime = 0;
+      duration = audio.duration;
+    });
+  };
+
+  const startAudioLoop = () => {
+    interval = setInterval(() => {
+      currentTime = audio.currentTime;
+    }, 250);
+  };
+
+  const killAudioLoop = () => {
+    clearInterval(interval);
+  };
+
+  const togglePlayPause = () => {
+    if (playing) {
+      audio.pause();
+      killAudioLoop();
+    } else {
+      audio.play();
+      startAudioLoop();
+    }
+
+    playing = !playing;
+  };
+
+  const onUpdateTime = time => {
+    console.log(time);
+  };
 </script>
 
 <style lang="scss">
@@ -11,6 +66,7 @@
     display: flex;
     align-items: center;
     height: 100%;
+    background: #1b1b1b;
   }
 
   .duration {
@@ -22,7 +78,6 @@
   }
 
   .tracking {
-    width: 25%;
     height: 100%;
     background: #e1017a;
   }
@@ -67,10 +122,17 @@
 </style>
 
 <div class="container">
-  <button class:playing type="button">play</button>
-  <span>1:23</span>
-  <div class="duration">
-    <div class="tracking" />
-  </div>
-  <span>5:45</span>
+  {#if audio && loaded}
+    <button class:playing type="button" on:click={togglePlayPause}>play</button>
+
+    <span>{makeDurationFromMs(currentTime * 1000)}</span>
+
+    <div class="duration">
+      <div
+        class="tracking"
+        style={`width:${(currentTime / duration) * 100}%`} />
+    </div>
+
+    <span>{makeDurationFromMs(duration * 1000)}</span>
+  {/if}
 </div>
