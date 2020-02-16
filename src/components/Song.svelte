@@ -17,19 +17,18 @@
 </script>
 
 <style lang="scss">
-  button {
-    text-align: left;
-    background: 0;
-    border: 0;
-    display: flex;
-    flex-direction: column;
+  .song {
+    display: grid;
+    grid:
+      "art title" auto
+      "art meta" auto
+      / 55px auto;
     margin-bottom: 12px;
-    padding-left: 80px;
-    box-sizing: border-box;
-    background-size: 70px 70px;
-    background-repeat: no-repeat;
+    grid-column-gap: 10px;
 
     &:hover {
+      cursor: pointer;
+
       b {
         color: #e1017a;
       }
@@ -40,15 +39,24 @@
     }
   }
 
+  img,
+  .empty {
+    width: 100%;
+    height: 100%;
+    grid-area: art;
+  }
+
   b {
+    grid-area: title;
     font-weight: normal;
     font-size: 1.4rem;
     color: #a5a5a5;
   }
 
   em {
+    grid-area: meta;
     font-style: normal;
-    font-size: 0.8rem;
+    font-size: 1rem;
     color: #828282;
 
     span {
@@ -68,16 +76,22 @@
 </style>
 
 {#if song}
-  <button
+  <div
+    class="song"
+    role="button"
     class:playing
     type="button"
-    on:click={playSong}
-    style={albumArtRef ? `background-image:url('${albumArtRef[0].url}')` : ''}>
+    on:click={playSong}>
+    {#if albumArtRef}
+      <img src="{albumArtRef[0].url}=w70-c-h70-e100" alt="" />
+    {:else}
+      <div class="empty">&nbsp;</div>
+    {/if}
     <b>{title}</b>
     <em>
       {artist}
       {#if album}&middot; {album}{/if}
       <span>{makeDurationFromMs(durationMillis)}</span>
     </em>
-  </button>
+  </div>
 {/if}
