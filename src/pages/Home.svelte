@@ -21,7 +21,7 @@
 <style>
   :root {
     --header-height: 43px;
-    --footer-height: 23px;
+    --footer-height: 30px;
     --container-padding: 12px;
     --grid-gap: 10px;
   }

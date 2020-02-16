@@ -18,6 +18,13 @@
 </script>
 
 <style lang="scss">
+  %ellipsis {
+    word-break: break-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
   .song {
     display: grid;
     grid:
@@ -48,6 +55,7 @@
   }
 
   b {
+    @extend %ellipsis;
     grid-area: title;
     font-weight: normal;
     font-size: 1.4rem;
@@ -55,6 +63,7 @@
   }
 
   em {
+    @extend %ellipsis;
     grid-area: meta;
     font-style: normal;
     font-size: 1rem;

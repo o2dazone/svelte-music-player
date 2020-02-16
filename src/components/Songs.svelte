@@ -16,10 +16,12 @@
       ids = !ids ? words[searchWord] : intersection(ids, words[searchWord]);
     });
 
-    ids.forEach(id => {
-      tracks[id].id = id;
-      results.push(tracks[id]);
-    });
+    if (ids) {
+      ids.forEach(id => {
+        tracks[id].id = id;
+        results.push(tracks[id]);
+      });
+    }
   }
 </script>
 

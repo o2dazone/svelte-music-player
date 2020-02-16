@@ -4,22 +4,26 @@
 
 <style lang="scss">
   :root {
-    --control-size: 12px;
+    --control-size: 15px;
   }
 
   .container {
     display: flex;
-    align-items: stretch;
+    align-items: center;
+    height: 100%;
   }
 
   .duration {
     width: 100%;
     background: black;
-    border-radius: 2px;
+    border-radius: 5px;
+    overflow: hidden;
+    align-self: stretch;
   }
 
   .tracking {
     width: 25%;
+    height: 100%;
     background: #e1017a;
   }
 
@@ -40,6 +44,19 @@
     }
   }
 
+  span {
+    color: #a5a5a5;
+    font-size: 1.2rem;
+
+    &:first-of-type {
+      margin-right: 10px;
+    }
+
+    &:last-of-type {
+      margin-left: 10px;
+    }
+  }
+
   .playing {
     border-left-color: #d8fd35;
 
@@ -51,7 +68,9 @@
 
 <div class="container">
   <button class:playing type="button">play</button>
+  <span>1:23</span>
   <div class="duration">
-    <div class="tracking">&nbsp;</div>
+    <div class="tracking" />
   </div>
+  <span>5:45</span>
 </div>
