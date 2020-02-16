@@ -2,9 +2,7 @@
   import { push } from "svelte-spa-router";
 
   export let isFullPage = false;
-  export let params = {};
-
-  let { term } = params;
+  export let term = "";
 
   const onSearch = e => {
     e.preventDefault();
@@ -49,7 +47,7 @@
     padding: 4px 10px;
   }
 
-  .landing {
+  .isFullPage {
     input {
       text-align: center;
       text-indent: 0;
@@ -62,7 +60,7 @@
   }
 </style>
 
-<form class={isFullPage && 'landing'} on:submit={onSearch}>
+<form class:isFullPage on:submit={onSearch}>
   <input
     type="text"
     name="searchTerm"

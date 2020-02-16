@@ -1,13 +1,9 @@
 <script>
+  import { makeDurationFromMs } from "helpers";
   export let playing = false;
-  let song = {};
-
-  let {
-    title = "Around the world",
-    artist = "Daft Punk",
-    album = "Homework EP",
-    duration = "2:34"
-  } = song;
+  export let song = null;
+  const { title, album, artist, durationMillis } = song;
+  console.log(song);
 
   const playSong = () => {
     console.log("playing...");
@@ -21,7 +17,7 @@
     border: 0;
     display: flex;
     flex-direction: column;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 
     &:hover {
       b {
@@ -42,6 +38,7 @@
 
   em {
     font-style: normal;
+    font-size: 0.8rem;
     color: #828282;
 
     span {
@@ -60,11 +57,13 @@
   }
 </style>
 
-<button class={playing && 'playing'} type="button" on:click={playSong}>
-  <b>{title}</b>
-  <em>
-    {artist}
-    {#if album}: {album}{/if}
-    <span>{duration}</span>
-  </em>
-</button>
+{#if song}
+  <button class:playing type="button" on:click={playSong}>
+    <b>{title}</b>
+    <em>
+      {artist}
+      {#if album}&middot; {album}{/if}
+      <span>{makeDurationFromMs(durationMillis)}</span>
+    </em>
+  </button>
+{/if}

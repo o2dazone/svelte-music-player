@@ -9,6 +9,7 @@
 
   .container {
     display: flex;
+    align-items: stretch;
   }
 
   .duration {
@@ -39,7 +40,7 @@
     }
   }
 
-  .play {
+  .playing {
     border-left-color: #d8fd35;
 
     &:hover {
@@ -49,7 +50,7 @@
 </style>
 
 <div class="container">
-  <button class={playing && 'play'} type="button">play</button>
+  <button class:playing type="button">play</button>
   <div class="duration">
     <div class="tracking">&nbsp;</div>
   </div>

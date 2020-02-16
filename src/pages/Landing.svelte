@@ -1,5 +1,13 @@
 <script>
   import SearchBox from "components/SearchBox";
+  import { index } from "stores";
+  import { INDEX_URL } from "helpers";
+
+  let songIndex = null;
+
+  index.subscribe(v => {
+    songIndex = v;
+  });
 </script>
 
 <style>
@@ -18,8 +26,10 @@
   }
 </style>
 
-<main>
-  <div class="container">
-    <SearchBox isFullPage={true} />
-  </div>
-</main>
+{#if songIndex}
+  <main>
+    <div class="container">
+      <SearchBox isFullPage={true} />
+    </div>
+  </main>
+{/if}

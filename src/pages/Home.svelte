@@ -1,15 +1,27 @@
 <script>
+  import { onMount } from "svelte";
   import Header from "components/Header";
   import Footer from "components/Footer";
   import Songs from "components/Songs";
-  import appState from "store";
+  import { index } from "stores";
+  import { INDEX_URL } from "helpers";
+
   export let params = {};
+
+  let { term } = params;
+  term = decodeURI(term);
+
+  let songIndex = null;
+
+  index.subscribe(v => {
+    songIndex = v;
+  });
 </script>
 
 <style>
   :root {
     --header-height: 43px;
-    --footer-height: 23px;
+    --footer-height: 43px;
     --container-padding: 12px;
     --grid-gap: 10px;
   }
@@ -30,11 +42,13 @@
 
 <div class="container">
   <header>
-    <Header {params} />
+    <Header {term} />
   </header>
 
   <main>
-    <Songs />
+    {#if songIndex}
+      <Songs {term} index={songIndex} />
+    {/if}
   </main>
 
   <footer>
