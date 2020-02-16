@@ -40,10 +40,12 @@
     ({ words, tracks } = state);
   });
 
-  export let results = [];
+  let results;
+  let trackId;
 
-  appState.subscribe(({ term }) => {
+  appState.subscribe(({ term, trackId: id }) => {
     results = getResults(term);
+    trackId = id;
   });
 </script>
 
@@ -66,6 +68,6 @@
 
 <div class="container">
   {#each results as song (song.id)}
-    <Song {song} />
+    <Song {song} playing={song.id === trackId} />
   {/each}
 </div>

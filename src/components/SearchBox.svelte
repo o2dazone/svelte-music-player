@@ -19,7 +19,7 @@
     const searchTerm = searchBox.value;
 
     if (searchTerm) {
-      push(`/${searchTerm}`);
+      push(`/${encodeURIComponent(searchTerm)}`);
       appState.update(store => {
         return { ...store, term: searchTerm };
       });
