@@ -31,7 +31,7 @@
       "art title" auto
       "art meta" auto
       / 55px auto;
-    margin-bottom: 12px;
+    margin-bottom: 20px;
     grid-column-gap: 10px;
 
     &:hover {
