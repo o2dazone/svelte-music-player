@@ -2,8 +2,14 @@
   import { makeDurationFromMs } from "helpers";
   export let playing = false;
   export let song = null;
-  const { title, album, artist, durationMillis } = song;
-  console.log(song);
+  const {
+    title,
+    album,
+    artist,
+    durationMillis,
+    id: trackId,
+    albumArtRef
+  } = song;
 
   const playSong = () => {
     console.log("playing...");
@@ -18,6 +24,10 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 12px;
+    padding-left: 80px;
+    box-sizing: border-box;
+    background-size: 70px 70px;
+    background-repeat: no-repeat;
 
     &:hover {
       b {
@@ -58,7 +68,11 @@
 </style>
 
 {#if song}
-  <button class:playing type="button" on:click={playSong}>
+  <button
+    class:playing
+    type="button"
+    on:click={playSong}
+    style={albumArtRef ? `background-image:url('${albumArtRef[0].url}')` : ''}>
     <b>{title}</b>
     <em>
       {artist}
