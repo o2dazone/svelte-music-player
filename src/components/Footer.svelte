@@ -1,6 +1,7 @@
 <script>
   import { onMount, onDestroy } from "svelte";
   import { getStreamUrl, makeDurationFromMs } from "helpers";
+  import { appState } from "stores";
 
   let playing = false;
   let loaded = false;
@@ -8,18 +9,22 @@
   let interval;
   let currentTime;
   let duration;
+  let trackId;
 
-  onMount(async () => {
-    const id = "67260897-df82-3514-9e96-9f3ddee81883";
-    if (id) {
-      makeAudio(await getStreamUrl(id));
+  appState.subscribe(async state => {
+    ({ trackId } = state);
+    if (trackId) {
+      resetAudio();
+      makeAudio(await getStreamUrl(trackId));
     }
   });
 
-  onDestroy(() => {
-    killAudioLoop();
-    audio.removeEventListener("loadeddata");
-  });
+  const resetAudio = () => {
+    if (audio) {
+      pausePlay();
+      currentTime = 0;
+    }
+  };
 
   const makeAudio = url => {
     audio = new Audio(url);
@@ -27,6 +32,7 @@
       loaded = true;
       currentTime = 0;
       duration = audio.duration;
+      startPlay();
     });
   };
 
@@ -40,16 +46,24 @@
     clearInterval(interval);
   };
 
+  const startPlay = () => {
+    audio.play();
+    startAudioLoop();
+    playing = true;
+  };
+
+  const pausePlay = () => {
+    audio.pause();
+    killAudioLoop();
+    playing = false;
+  };
+
   const togglePlayPause = () => {
     if (playing) {
-      audio.pause();
-      killAudioLoop();
+      pausePlay();
     } else {
-      audio.play();
-      startAudioLoop();
+      startPlay();
     }
-
-    playing = !playing;
   };
 
   const onUpdateTime = time => {

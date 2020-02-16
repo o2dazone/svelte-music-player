@@ -13,7 +13,10 @@
   const onSearch = e => {
     e.preventDefault();
 
-    const searchTerm = e.currentTarget.searchTerm.value;
+    const { searchBox } = e.currentTarget;
+    searchBox.blur();
+
+    const searchTerm = searchBox.value;
 
     if (searchTerm) {
       push(`/${searchTerm}`);
@@ -72,7 +75,7 @@
 <form class:isFullPage on:submit={onSearch}>
   <input
     type="text"
-    name="searchTerm"
+    name="searchBox"
     placeholder="Search for a song, artist or album"
     value={term ? term : ''} />
   <button type="submit">Search</button>

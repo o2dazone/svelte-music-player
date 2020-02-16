@@ -1,5 +1,7 @@
 <script>
   import { makeDurationFromMs } from "helpers";
+  import { appState } from "stores";
+
   export let playing = false;
   export let song;
 
@@ -13,7 +15,9 @@
   } = song;
 
   const playSong = e => {
-    console.log(e.currentTarget.dataset.trackId);
+    appState.update(state => {
+      return { ...state, trackId: e.currentTarget.dataset.trackId };
+    });
   };
 </script>
 
