@@ -5,18 +5,40 @@
 
   let songIndex = null;
 
-  index.subscribe(v => {
-    songIndex = v;
+  index.subscribe(state => {
+    songIndex = state;
   });
 </script>
 
 <style>
+  @keyframes pulse {
+    0% {
+      opacity: 0;
+    }
+
+    50% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
   main {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100vw;
     height: 100vh;
+  }
+
+  p {
+    animation: 1.5s pulse infinite;
+    transition-property: opacity;
+    font-size: 2rem;
+    color: #e1017a;
+    font-weight: bold;
+    font-style: italic;
   }
 
   .container {
@@ -31,5 +53,9 @@
     <div class="container">
       <SearchBox isFullPage={true} />
     </div>
+  </main>
+{:else}
+  <main>
+    <p>Loading index...</p>
   </main>
 {/if}

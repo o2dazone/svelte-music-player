@@ -1,11 +1,17 @@
 <script>
   import Song from "components/Song";
+  import { index, appState } from "stores";
   import { getWords, intersection } from "helpers";
 
-  export let index = {};
-  export let term = "";
+  let { term, words, tracks } = {};
 
-  const { words, tracks } = index;
+  index.subscribe(state => {
+    ({ words, tracks } = state);
+  });
+
+  appState.subscribe(state => {
+    term = state.term;
+  });
 
   const results = [];
 

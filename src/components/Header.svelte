@@ -1,6 +1,5 @@
 <script>
   import SearchBox from "components/SearchBox";
-  export let term;
 </script>
 
 <style lang="scss">
@@ -26,5 +25,5 @@
     o2
     <span>music</span>
   </h1>
-  <SearchBox {term} />
+  <SearchBox />
 </div>

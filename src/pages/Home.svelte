@@ -3,15 +3,19 @@
   import Header from "components/Header";
   import Footer from "components/Footer";
   import Songs from "components/Songs";
-  import { index } from "stores";
+  import { index, appState } from "stores";
   import { INDEX_URL } from "helpers";
 
   export let params = {};
-
-  let { term } = params;
-  term = decodeURI(term);
+  const { term } = params;
 
   let songIndex = null;
+
+  if (term) {
+    appState.update(store => {
+      return { ...store, term: decodeURI(term) };
+    });
+  }
 
   index.subscribe(v => {
     songIndex = v;
@@ -42,12 +46,12 @@
 
 <div class="container">
   <header>
-    <Header {term} />
+    <Header />
   </header>
 
   <main>
     {#if songIndex}
-      <Songs {term} index={songIndex} />
+      <Songs />
     {/if}
   </main>
 

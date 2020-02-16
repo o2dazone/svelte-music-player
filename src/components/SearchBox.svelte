@@ -1,8 +1,14 @@
 <script>
   import { push } from "svelte-spa-router";
+  import { appState } from "stores";
 
   export let isFullPage = false;
-  export let term = "";
+
+  let { term } = {};
+
+  appState.subscribe(state => {
+    ({ term } = state);
+  });
 
   const onSearch = e => {
     e.preventDefault();
@@ -11,6 +17,9 @@
 
     if (searchTerm) {
       push(`/${searchTerm}`);
+      appState.update(store => {
+        return { ...store, term: searchTerm };
+      });
     }
   };
 </script>
