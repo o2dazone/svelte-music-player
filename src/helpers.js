@@ -31,8 +31,6 @@ export const intersection = (set1 = [], set2) => {
   return rval;
 };
 
-
-
 export const makeDurationFromMs = ms => {
   const minutes = Math.floor(ms / 60000);
   const seconds = ((ms % 60000) / 1000).toFixed(0);

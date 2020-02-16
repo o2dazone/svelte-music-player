@@ -2,6 +2,7 @@
   import { makeDurationFromMs } from "helpers";
   export let playing = false;
   export let song = null;
+
   const {
     title,
     album,
@@ -11,8 +12,8 @@
     albumArtRef
   } = song;
 
-  const playSong = () => {
-    console.log("playing...");
+  const playSong = e => {
+    console.log(e.currentTarget.dataset.trackId);
   };
 </script>
 
@@ -80,7 +81,7 @@
     class="song"
     role="button"
     class:playing
-    type="button"
+    data-track-id={trackId}
     on:click={playSong}>
     {#if albumArtRef}
       <img src="{albumArtRef[0].url}=w70-c-h70-e100" alt="" />
