@@ -1,5 +1,6 @@
 <script>
   import Song from "components/Song";
+  import Audio from "components/Audio";
   import { index, appState } from "stores";
   import {
     REPLACE_MORE_WEIRD_CHARACTERS,
@@ -68,4 +69,6 @@
   {#each results as song (song.id)}
     <Song {song} />
   {/each}
+
+  <Audio id="67260897-df82-3514-9e96-9f3ddee81883" />
 </div>

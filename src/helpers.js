@@ -5,7 +5,7 @@ export const REPLACE_WEIRD_CHARACTERS = /-|&|\//g;
 export const REPLACE_MORE_WEIRD_CHARACTERS = /'|\(|\)|\.|!/g;
 
 export const getStreamUrl = async(trackId) => {
-  const res = await fetch(STREAM_URL);
+  const res = await fetch(`${STREAM_URL}${trackId}`);
   return res.json();
 }
 
