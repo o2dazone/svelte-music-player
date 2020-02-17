@@ -9,13 +9,13 @@
   export let params = {};
   const { term } = params;
 
-  let songIndex = null;
-
   if (term) {
     appState.update(store => {
       return { ...store, term: decodeURI(term) };
     });
   }
+
+  let songIndex;
 
   index.subscribe(v => {
     songIndex = v;

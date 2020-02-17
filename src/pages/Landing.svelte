@@ -3,7 +3,7 @@
   import { index } from "stores";
   import { INDEX_URL } from "helpers";
 
-  let songIndex = null;
+  let songIndex;
 
   index.subscribe(state => {
     songIndex = state;

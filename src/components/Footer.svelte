@@ -5,7 +5,7 @@
 
   let playing = false;
   let loaded = false;
-  let audio;
+  let audio = new Audio();
   let interval;
   let currentTime;
   let duration;
@@ -27,7 +27,7 @@
   };
 
   const makeAudio = url => {
-    audio = new Audio(url);
+    audio.src = url;
     audio.addEventListener("loadeddata", () => {
       loaded = true;
       currentTime = 0;

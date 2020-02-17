@@ -7,31 +7,26 @@
     STOP_WORDS
   } from "helpers";
 
-  const getResults = term => {
-    // split terms, remove strange characters
-    const searchTerms = term
-      .toLowerCase()
-      .replace(REPLACE_WEIRD_CHARACTERS, " ")
-      .replace(REPLACE_MORE_WEIRD_CHARACTERS, "")
-      .split(/ +/);
+  const getResults = query => {
+    if (query) {
+      const searchWords = query
+        .toLowerCase()
+        .replace(REPLACE_WEIRD_CHARACTERS, " ")
+        .replace(REPLACE_MORE_WEIRD_CHARACTERS, "")
+        .split(/ +/);
 
-    let allIds = [];
+      let ids;
 
-    searchTerms.forEach(term => {
-      if (STOP_WORDS.includes(term) || !words[term]) {
-        return; // if its a stop word, skip looping
-      }
+      searchWords.forEach(searchWord => {
+        ids = !ids
+          ? words[searchWord] // single term
+          : ids.filter(e => words[searchWord].includes(e)); // multiple term
+      });
 
-      allIds.push(
-        ...words[term].filter(id => {
-          return !allIds.includes(id); //push id into array if its not there already
-        })
-      );
-    });
-
-    return allIds.map(id => {
-      return { ...tracks[id], id }; // return all tracks in the id array, along with its id
-    });
+      return ids.map(id => {
+        return { ...tracks[id], id }; // return all tracks in the id array, along with its id
+      });
+    }
   };
 
   let { words, tracks } = {};
