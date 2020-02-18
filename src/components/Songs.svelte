@@ -4,11 +4,17 @@
   import {
     REPLACE_MORE_WEIRD_CHARACTERS,
     REPLACE_WEIRD_CHARACTERS,
-    STOP_WORDS
+    STOP_WORDS,
+    TRACK_ID_RE
   } from "helpers";
 
   const getResults = query => {
     if (query) {
+      // if song is a track id, show only that song and display play button
+      if (TRACK_ID_RE.test(query)) {
+        return [{ ...tracks[query], id: query }];
+      }
+
       const searchWords = query
         .toLowerCase()
         .replace(REPLACE_WEIRD_CHARACTERS, " ")

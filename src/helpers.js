@@ -3,6 +3,7 @@ export const STREAM_URL = 'https://xkjifuezph.execute-api.us-east-1.amazonaws.co
 export const STOP_WORDS = ['a', 'the', 'of', 'is'];
 export const REPLACE_WEIRD_CHARACTERS = /-|&|\//g;
 export const REPLACE_MORE_WEIRD_CHARACTERS = /'|\(|\)|\.|!/g;
+export const TRACK_ID_RE = /(\w)+-(\w)+-(\w)+-(\w)+-(\w)+/;
 
 export const getStreamUrl = async(trackId) => {
   const res = await fetch(`${STREAM_URL}${trackId}`);
