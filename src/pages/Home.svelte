@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
   import Header from "components/Header";
   import Footer from "components/Footer";
-  import Songs from "components/Songs";
+  import Results from "components/Results";
   import { index, appState } from "stores";
   import { INDEX_URL } from "helpers";
 
@@ -51,7 +51,7 @@
 
   <main>
     {#if songIndex}
-      <Songs />
+      <Results />
     {/if}
   </main>
 

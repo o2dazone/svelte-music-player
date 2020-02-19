@@ -1,5 +1,6 @@
 <script>
   import Song from "components/Song";
+  import Autoplay from "components/Autoplay";
   import { index, appState } from "stores";
   import {
     REPLACE_MORE_WEIRD_CHARACTERS,
@@ -8,10 +9,17 @@
     TRACK_ID_RE
   } from "helpers";
 
+  let isModalOpen = false;
+
+  const closeModal = () => {
+    isModalOpen = false;
+  };
+
   const getResults = query => {
     if (query) {
       // if song is a track id, show only that song and display play button
       if (TRACK_ID_RE.test(query)) {
+        isModalOpen = true;
         return [{ ...tracks[query], id: query }];
       }
 
@@ -68,6 +76,10 @@
 </style>
 
 <div class="container">
+  {#if isModalOpen}
+    <Autoplay {results} {closeModal} />
+  {/if}
+
   {#each results as song (song.id)}
     <Song {song} playing={song.id === trackId} />
   {/each}

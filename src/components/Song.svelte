@@ -1,4 +1,5 @@
 <script>
+  import AlbumArt from "components/AlbumArt";
   import { makeDurationFromMs } from "helpers";
   import { appState } from "stores";
 
@@ -95,11 +96,7 @@
   class:playing
   data-track-id={trackId}
   on:click={playSong}>
-  {#if albumArtRef}
-    <img src="{albumArtRef[0].url}=w70-c-h70-e100" alt="" />
-  {:else}
-    <div class="empty">&nbsp;</div>
-  {/if}
+  <AlbumArt art={albumArtRef} />
   <b>{title}</b>
   <em>
     {artist}
