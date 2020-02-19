@@ -1,4 +1,5 @@
 <script>
+  import Share from "components/Share";
   import { onMount, onDestroy } from "svelte";
   import { getStreamUrl, makeDurationFromMs } from "helpers";
   import { appState } from "stores";
@@ -65,10 +66,6 @@
       startPlay();
     }
   };
-
-  const onUpdateTime = time => {
-    console.log(time);
-  };
 </script>
 
 <style lang="scss">
@@ -96,9 +93,9 @@
     background: #e1017a;
   }
 
-  button {
+  .play {
     background: transparent;
-    margin-right: 10px;
+    margin-right: 30px;
     text-indent: -9999em;
     overflow: hidden;
     width: 0;
@@ -137,7 +134,7 @@
 
 <div class="container">
   {#if audio && loaded}
-    <button class:playing type="button" on:click={togglePlayPause}>
+    <button class:playing class="play" type="button" on:click={togglePlayPause}>
       {playing ? 'pause' : 'play'}
     </button>
 
@@ -150,5 +147,7 @@
     </div>
 
     <span>{makeDurationFromMs(duration * 1000)}</span>
+
+    <Share {trackId} />
   {/if}
 </div>

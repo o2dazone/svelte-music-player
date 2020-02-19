@@ -9,17 +9,13 @@
     TRACK_ID_RE
   } from "helpers";
 
-  let isModalOpen = false;
-
-  const closeModal = () => {
-    isModalOpen = false;
-  };
+  let isShared = false;
 
   const getResults = query => {
     if (query) {
       // if song is a track id, show only that song and display play button
       if (TRACK_ID_RE.test(query)) {
-        isModalOpen = true;
+        isShared = true;
         return [{ ...tracks[query], id: query }];
       }
 
@@ -76,9 +72,7 @@
 </style>
 
 <div class="container">
-  {#if isModalOpen}
-    <Autoplay {results} {closeModal} />
-  {/if}
+  <Autoplay {results} {isShared} />
 
   {#each results as song (song.id)}
     <Song {song} playing={song.id === trackId} />

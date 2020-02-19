@@ -3,12 +3,22 @@
   export let size = 70;
 </script>
 
-<style>
+<style lang="scss">
   img,
   .empty {
     grid-area: art;
-    border-radius: 5px;
     width: 100%;
+  }
+
+  img {
+    border-radius: 5px;
+  }
+
+  .empty {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url("../assets/disc.png");
+    opacity: 0.7;
   }
 </style>
 
