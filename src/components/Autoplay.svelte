@@ -45,36 +45,10 @@
     background: #1b1b1b;
     width: 90vw;
     max-width: 700px;
-    // height: 200px;
     display: flex;
     flex-direction: column;
     padding: 15px;
     box-sizing: border-box;
-  }
-
-  .close {
-    align-self: flex-end;
-    position: relative;
-    border: 0;
-    overflow: hidden;
-    font-size: 0;
-    height: 35px;
-    width: 35px;
-    background-color: #000;
-    border-radius: 5px;
-
-    &:after {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      content: "\274c"; /* use the hex value here... */
-      font-size: 20px;
-      color: #fff;
-      line-height: 35px;
-      text-align: center;
-    }
   }
 
   .song {
@@ -82,7 +56,7 @@
     grid:
       "art title" auto
       "art meta" auto
-      / 85px auto;
+      / 105px auto;
     grid-column-gap: 10px;
   }
 
@@ -100,33 +74,59 @@
     color: #828282;
   }
 
-  .play {
-    background: #e1017a;
+  .actions {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  button {
     border: 0;
-    border-radius: 2px;
-    font-size: 16px;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    min-width: 150px;
     font-weight: bold;
     color: white;
     margin: 20px 0 5px;
-    padding: 4px 10px;
-    width: 200px;
-    align-self: center;
+    padding: 8px;
+  }
+
+  .play {
+    background: #e1017a;
+  }
+
+  .close {
+    background: #2b2b2b;
+  }
+
+  @media all and (max-width: 550px) {
+    .song {
+      display: flex;
+      flex-direction: column;
+    }
   }
 </style>
 
 {#if results && isShared && isModalOpen}
   <div aria-modal="true" class="overlay">
     <div class="container">
-      <button type="button" class="close" on:click={closeModal}>Close</button>
       <div class="song">
-        <AlbumArt art={albumArtRef} size="150" />
+        <AlbumArt art={albumArtRef} size="550" />
         <h3>{title}</h3>
         <h4>
           {artist}
           {#if album}&middot; {album}{/if}
         </h4>
       </div>
-      <button class="play" data-track-id={id} on:click={playSong}>Play</button>
+      <div class="actions">
+        <button
+          type="button"
+          class="play"
+          data-track-id={id}
+          on:click={playSong}>
+          Play
+        </button>
+        <button type="button" class="close" on:click={closeModal}>Close</button>
+      </div>
     </div>
   </div>
 {/if}
