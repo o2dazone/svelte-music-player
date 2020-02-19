@@ -12,6 +12,17 @@
   let duration;
   let trackId;
 
+  audio.addEventListener("loadeddata", () => {
+    loaded = true;
+    currentTime = 0;
+    duration = audio.duration;
+    startPlay();
+  });
+
+  audio.addEventListener("ended", () => {
+    console.log("test");
+  });
+
   appState.subscribe(async state => {
     ({ trackId } = state);
     if (trackId) {
@@ -23,18 +34,14 @@
   const resetAudio = () => {
     if (audio) {
       pausePlay();
+      duration = 0;
       currentTime = 0;
     }
   };
 
   const makeAudio = url => {
     audio.src = url;
-    audio.addEventListener("loadeddata", () => {
-      loaded = true;
-      currentTime = 0;
-      duration = audio.duration;
-      startPlay();
-    });
+    startPlay();
   };
 
   const startAudioLoop = () => {
