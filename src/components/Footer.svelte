@@ -2,7 +2,7 @@
   import Share from "components/Share";
   import { onMount, onDestroy } from "svelte";
   import { getStreamUrl, makeDurationFromMs } from "helpers";
-  import { appState } from "stores";
+  import { index, appState } from "stores";
 
   let playing = false;
   let loaded = false;
@@ -12,6 +12,12 @@
   let duration;
   let trackId;
 
+  let songIndex;
+
+  index.subscribe(v => {
+    songIndex = v;
+  });
+
   audio.addEventListener("loadeddata", () => {
     loaded = true;
     currentTime = 0;
@@ -20,7 +26,7 @@
   });
 
   audio.addEventListener("ended", () => {
-    console.log("test");
+    nextSong();
   });
 
   appState.subscribe(async state => {
@@ -42,6 +48,16 @@
   const makeAudio = url => {
     audio.src = url;
     startPlay();
+  };
+
+  const nextSong = () => {
+    console.log(trackId);
+    console.log(songIndex.tracks[trackId]);
+    // const trackId = "";
+
+    // appState.update(state => {
+    //   return { ...state, trackId };
+    // });
   };
 
   const startAudioLoop = () => {
@@ -144,6 +160,8 @@
     <button class:playing class="play" type="button" on:click={togglePlayPause}>
       {playing ? 'pause' : 'play'}
     </button>
+
+    <!-- <button on:click={nextSong}>next song</button> -->
 
     <span>{makeDurationFromMs(currentTime * 1000)}</span>
 
