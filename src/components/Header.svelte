@@ -18,6 +18,12 @@
       color: #009bfd;
     }
   }
+
+  @media all and (max-width: 550px) {
+    h1 {
+      display: none;
+    }
+  }
 </style>
 
 <div class="container">

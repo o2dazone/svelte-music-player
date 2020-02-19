@@ -81,6 +81,15 @@
       color: #d1d1d1;
     }
   }
+
+  @media all and (max-width: 550px) {
+    .song {
+      grid:
+        "art title" auto
+        "art meta" auto
+        / 0px auto;
+    }
+  }
 </style>
 
 <div

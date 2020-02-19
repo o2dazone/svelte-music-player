@@ -28,13 +28,17 @@
     &::placeholder {
       font-style: italic;
     }
+
+    @media all and (max-width: 550px) {
+      width: 50px;
+    }
   }
 
   .share {
     border: 0;
     background: transparent;
     margin-left: 10px;
-    min-width: 75px;
+    min-width: 55px;
     color: #a5a5a5;
     font-style: italic;
   }
@@ -49,6 +53,6 @@
       value="{window.origin}/#/{trackId}" />
   {/if}
   <button type="button" on:click={copyShareLink} class="share">
-    {copied ? 'Copied!' : 'Share song'}
+    {copied ? 'Copied' : 'Share'}
   </button>
 {/if}
