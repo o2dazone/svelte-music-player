@@ -61,8 +61,11 @@
 
   .isFullPage {
     input {
-      text-align: center;
-      text-indent: 0;
+      @media all and (min-width: 550px) {
+        text-align: center;
+        text-indent: 0;
+      }
+
       font-size: 1.5rem;
     }
 

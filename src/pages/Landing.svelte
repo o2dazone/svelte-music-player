@@ -43,7 +43,8 @@
 
   .container {
     display: flex;
-    width: 600px;
+    padding: 0 10px;
+    max-width: 600px;
     height: 70px;
   }
 </style>
