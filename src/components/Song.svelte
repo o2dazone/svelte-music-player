@@ -102,7 +102,8 @@
   <b>{title}</b>
   <em>
     {artist}
-    {#if album}&middot; {album}{/if}
+    {#if album && artist}&middot;{/if}
+    {album}
     <span>{makeDurationFromMs(durationMillis)}</span>
   </em>
 </div>

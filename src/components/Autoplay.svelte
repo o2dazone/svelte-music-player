@@ -8,7 +8,7 @@
   let isModalOpen = !!isShared;
 
   const { artist, album, title, id, albumArtRef } = results[0] || {};
-
+  console.log(!!artist);
   const closeModal = () => {
     isModalOpen = false;
   };
@@ -114,7 +114,8 @@
         <h3>{title}</h3>
         <h4>
           {artist}
-          {#if album}&middot; {album}{/if}
+          {#if album && artist}&middot;{/if}
+          {album}
         </h4>
       </div>
       <div class="actions">
