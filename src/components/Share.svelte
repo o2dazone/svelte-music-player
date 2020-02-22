@@ -50,7 +50,7 @@
       type="text"
       class="copyField"
       bind:this={copyInput}
-      value="{window.origin}/#/{trackId}" />
+      value="{window.origin}{window.location.pathname}#/{trackId}" />
   {/if}
   <button type="button" on:click={copyShareLink} class="share">
     {copied ? 'Copied' : 'Share'}
