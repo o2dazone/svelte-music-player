@@ -39,9 +39,8 @@
     color: #ccc;
     border: 0;
     margin-right: 10px;
-    text-indent: 12px;
     width: 100%;
-    padding: 8px 0;
+    padding: 8px;
     font-size: 1.2rem;
 
     &::placeholder {
@@ -63,7 +62,6 @@
     input {
       @media all and (min-width: 550px) {
         text-align: center;
-        text-indent: 0;
       }
 
       font-size: 1.5rem;
