@@ -1,16 +1,39 @@
 <script>
+  import { onMount } from 'svelte';
   import Song from 'components/Song';
   import Autoplay from 'components/Autoplay';
-  import { index, appState } from 'stores';
-  import { INDEX_URL } from 'helpers';
+  import { index, art, appState } from 'stores';
   import {
     REPLACE_MORE_WEIRD_CHARACTERS,
     REPLACE_WEIRD_CHARACTERS,
     STOP_WORDS,
+    ALBUM_ART_URL,
     TRACK_ID_RE
   } from 'helpers';
 
   let isShared = false;
+
+  let { hashTracks, hashArt } = {};
+
+  art.subscribe(state => {
+    ({ hashTracks, hashArt } = state || {});
+  });
+
+  onMount(async () => {
+    if (!hashTracks) {
+      let res = await fetch(ALBUM_ART_URL);
+      res = await res.json();
+      art.set(res);
+    }
+  });
+
+  const getArt = id => {
+    for (const [key, value] of Object.entries(hashTracks)) {
+      if (value.includes(id)) {
+        return hashArt[key];
+      }
+    }
+  };
 
   const getResults = query => {
     if (query) {
@@ -80,6 +103,9 @@
 <div class="container">
   <Autoplay {results} {isShared} />
   {#each results as song (song.id)}
-    <Song {song} playing={song.id === trackId} />
+    <Song
+      {song}
+      art={!!hashTracks && getArt(song.id)}
+      playing={song.id === trackId} />
   {/each}
 </div>

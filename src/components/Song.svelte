@@ -5,8 +5,9 @@
 
   export let playing = false;
   export let song;
+  export let art;
 
-  const { title, album, artist, duration, id: trackId, art } = song;
+  const { title, album, artist, duration, id: trackId } = song;
 
   const playSong = e => {
     appState.update(state => {
