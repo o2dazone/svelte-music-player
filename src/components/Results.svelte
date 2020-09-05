@@ -1,13 +1,13 @@
 <script>
-  import Song from "components/Song";
-  import Autoplay from "components/Autoplay";
-  import { index, appState } from "stores";
+  import Song from 'components/Song';
+  import Autoplay from 'components/Autoplay';
+  import { index, appState } from 'stores';
   import {
     REPLACE_MORE_WEIRD_CHARACTERS,
     REPLACE_WEIRD_CHARACTERS,
     STOP_WORDS,
     TRACK_ID_RE
-  } from "helpers";
+  } from 'helpers';
 
   let isShared = false;
 
@@ -21,8 +21,8 @@
 
       const searchWords = query
         .toLowerCase()
-        .replace(REPLACE_WEIRD_CHARACTERS, " ")
-        .replace(REPLACE_MORE_WEIRD_CHARACTERS, "")
+        .replace(REPLACE_WEIRD_CHARACTERS, ' ')
+        .replace(REPLACE_MORE_WEIRD_CHARACTERS, '')
         .split(/ +/);
 
       let ids;

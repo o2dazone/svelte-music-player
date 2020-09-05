@@ -1,7 +1,7 @@
 <script>
-  import AlbumArt from "components/AlbumArt";
-  import { makeDurationFromMs } from "helpers";
-  import { appState } from "stores";
+  import AlbumArt from 'components/AlbumArt';
+  import { makeDurationFromMs } from 'helpers';
+  import { appState } from 'stores';
 
   export let playing = false;
   export let song;
@@ -33,8 +33,8 @@
   .song {
     display: grid;
     grid:
-      "art title" auto
-      "art meta" auto
+      'art title' auto
+      'art meta' auto
       / 55px auto;
     margin-bottom: 20px;
     grid-column-gap: 10px;
@@ -85,8 +85,8 @@
   @media all and (max-width: 550px) {
     .song {
       grid:
-        "art title" auto
-        "art meta" auto
+        'art title' auto
+        'art meta' auto
         / 0px auto;
     }
   }

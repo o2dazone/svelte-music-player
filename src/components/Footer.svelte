@@ -1,8 +1,8 @@
 <script>
-  import Share from "components/Share";
-  import { onMount, onDestroy } from "svelte";
-  import { getStreamUrl, makeDurationFromMs } from "helpers";
-  import { index, appState } from "stores";
+  import Share from 'components/Share';
+  import { onMount, onDestroy } from 'svelte';
+  import { getStreamUrl, makeDurationFromMs } from 'helpers';
+  import { index, appState } from 'stores';
 
   let playing = false;
   let loaded = false;
@@ -18,14 +18,14 @@
     songIndex = v;
   });
 
-  audio.addEventListener("loadeddata", () => {
+  audio.addEventListener('loadeddata', () => {
     loaded = true;
     currentTime = 0;
     duration = audio.duration;
     startPlay();
   });
 
-  audio.addEventListener("ended", () => {
+  audio.addEventListener('ended', () => {
     nextSong();
   });
 

@@ -1,7 +1,6 @@
 <script>
-  import SearchBox from "components/SearchBox";
-  import { index } from "stores";
-  import { INDEX_URL } from "helpers";
+  import SearchBox from 'components/SearchBox';
+  import { index } from 'stores';
 
   let songIndex;
 

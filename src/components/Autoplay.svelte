@@ -1,6 +1,6 @@
 <script>
-  import AlbumArt from "components/AlbumArt";
-  import { appState } from "stores";
+  import AlbumArt from 'components/AlbumArt';
+  import { appState } from 'stores';
 
   export let isShared;
   export let results = [];
@@ -54,8 +54,8 @@
   .song {
     display: grid;
     grid:
-      "art title" auto
-      "art meta" auto
+      'art title' auto
+      'art meta' auto
       / 105px auto;
     grid-column-gap: 10px;
   }

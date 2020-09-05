@@ -8,7 +8,7 @@
     copied = true;
     setTimeout(() => {
       copyInput.select();
-      document.execCommand("copy");
+      document.execCommand('copy');
     }, 100);
     setTimeout(() => {
       copied = false;

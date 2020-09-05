@@ -1,10 +1,9 @@
 <script>
-  import { onMount } from "svelte";
-  import Header from "components/Header";
-  import Footer from "components/Footer";
-  import Results from "components/Results";
-  import { index, appState } from "stores";
-  import { INDEX_URL } from "helpers";
+  import { onMount } from 'svelte';
+  import Header from 'components/Header';
+  import Footer from 'components/Footer';
+  import Results from 'components/Results';
+  import { index, appState } from 'stores';
 
   export let params = {};
   const { term } = params;

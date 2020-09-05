@@ -1,9 +1,9 @@
 <script>
-  import { onMount } from "svelte";
-  import Router from "svelte-spa-router";
-  import routes from "./routes.js";
-  import { index } from "stores";
-  import { INDEX_URL } from "helpers";
+  import { onMount } from 'svelte';
+  import Router from 'svelte-spa-router';
+  import routes from './routes.js';
+  import { index } from 'stores';
+  import { INDEX_URL } from 'helpers';
 
   let songIndex = {};
 

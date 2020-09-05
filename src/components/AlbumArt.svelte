@@ -17,7 +17,7 @@
   .empty {
     background-size: contain;
     background-repeat: no-repeat;
-    background-image: url("../assets/disc.png");
+    background-image: url('../assets/disc.png');
     opacity: 0.7;
   }
 </style>
