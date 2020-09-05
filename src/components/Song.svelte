@@ -6,14 +6,7 @@
   export let playing = false;
   export let song;
 
-  const {
-    title,
-    album,
-    artist,
-    durationMillis,
-    id: trackId,
-    albumArtRef
-  } = song;
+  const { title, album, artist, duration, id: trackId, art } = song;
 
   const playSong = e => {
     appState.update(state => {
@@ -98,12 +91,11 @@
   class:playing
   data-track-id={trackId}
   on:click={playSong}>
-  <AlbumArt art={albumArtRef} />
+  <AlbumArt {art} />
   <b>{title}</b>
   <em>
     {artist}
-    {#if album && artist}&middot;{/if}
-    {album}
-    <span>{makeDurationFromMs(durationMillis)}</span>
+    {#if album}&middot; {album}{/if}
+    <span>{makeDurationFromMs(duration)}</span>
   </em>
 </div>

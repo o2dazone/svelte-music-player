@@ -3,7 +3,7 @@
   import Router from 'svelte-spa-router';
   import routes from './routes.js';
   import { index } from 'stores';
-  import { INDEX_URL } from 'helpers';
+  import { INDEX_URL, ALBUM_ART_URL } from 'helpers';
 
   let songIndex = {};
 

@@ -23,7 +23,7 @@
 </style>
 
 {#if art}
-  <img src="{art[0].url}=w{size}-c-h{size}-e100" alt="" />
+  <img src="data:image/jpeg;base64,{art}" alt="" />
 {:else}
   <div class="empty">&nbsp;</div>
 {/if}

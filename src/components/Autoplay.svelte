@@ -8,7 +8,7 @@
   let isModalOpen = !!isShared;
 
   const { artist, album, title, id, albumArtRef } = results[0] || {};
-  console.log(!!artist);
+
   const closeModal = () => {
     isModalOpen = false;
   };

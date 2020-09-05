@@ -2,6 +2,7 @@
   import Song from 'components/Song';
   import Autoplay from 'components/Autoplay';
   import { index, appState } from 'stores';
+  import { INDEX_URL } from 'helpers';
   import {
     REPLACE_MORE_WEIRD_CHARACTERS,
     REPLACE_WEIRD_CHARACTERS,
@@ -32,6 +33,11 @@
           ? words[searchWord] // single term
           : ids.filter(e => words[searchWord].includes(e)); // multiple term
       });
+
+      // nothing matches, return empty object
+      if (!ids) {
+        return {};
+      }
 
       return ids.map(id => {
         return { ...tracks[id], id }; // return all tracks in the id array, along with its id
@@ -73,7 +79,6 @@
 
 <div class="container">
   <Autoplay {results} {isShared} />
-
   {#each results as song (song.id)}
     <Song {song} playing={song.id === trackId} />
   {/each}
