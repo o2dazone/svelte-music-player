@@ -34,7 +34,7 @@
   }
 
   input {
-    background: black;
+    background: rgba(0, 0, 0, 0.6);
     border-radius: 2px;
     color: #ccc;
     border: 0;

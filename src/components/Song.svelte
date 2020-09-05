@@ -51,7 +51,7 @@
     grid-area: title;
     font-weight: normal;
     font-size: 1.4rem;
-    color: #a5a5a5;
+    color: #ccc;
   }
 
   em {
@@ -59,7 +59,7 @@
     grid-area: meta;
     font-style: normal;
     font-size: 1rem;
-    color: #828282;
+    color: #7a7a7a;
 
     span {
       margin-left: 20px;

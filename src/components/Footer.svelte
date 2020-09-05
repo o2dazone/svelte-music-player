@@ -155,8 +155,8 @@
   }
 </style>
 
-<div class="container">
-  {#if audio && loaded}
+{#if audio && loaded}
+  <div class="container">
     <button class:playing class="play" type="button" on:click={togglePlayPause}>
       {playing ? 'pause' : 'play'}
     </button>
@@ -174,5 +174,5 @@
     <span>{makeDurationFromMs(duration * 1000)}</span>
 
     <Share {trackId} />
-  {/if}
-</div>
+  </div>
+{/if}
