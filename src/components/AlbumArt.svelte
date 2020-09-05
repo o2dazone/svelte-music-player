@@ -1,4 +1,6 @@
 <script>
+  import { BLANK_IMG } from 'helpers';
+
   export let art;
 </script>
 
@@ -10,8 +12,14 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-image: url('../assets/disc.png');
-    opacity: 0.7;
+  }
+
+  .empty {
+    opacity: 0.5;
   }
 </style>
 
-<img src={art ? `data:image/jpeg;base64,${art}` : '//:0'} alt="" />
+<img
+  class={!art && 'empty'}
+  src={art ? `data:image/jpeg;base64,${art}` : '0://'}
+  alt="" />
