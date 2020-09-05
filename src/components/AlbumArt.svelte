@@ -3,17 +3,10 @@
 </script>
 
 <style lang="scss">
-  img,
-  .empty {
+  img {
     grid-area: art;
     width: 100%;
-  }
-
-  img {
     border-radius: 5px;
-  }
-
-  .empty {
     background-size: contain;
     background-repeat: no-repeat;
     background-image: url('../assets/disc.png');
@@ -21,8 +14,4 @@
   }
 </style>
 
-{#if art}
-  <img src="data:image/jpeg;base64,{art}" alt="" />
-{:else}
-  <div class="empty">&nbsp;</div>
-{/if}
+<img src={art ? `data:image/jpeg;base64,${art}` : '//:0'} alt="" />

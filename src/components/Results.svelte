@@ -13,14 +13,14 @@
 
   let isShared = false;
 
-  let { hashTracks, hashArt } = {};
+  let artIndex = null;
 
   art.subscribe(state => {
-    ({ hashTracks, hashArt } = state || {});
+    artIndex = state;
   });
 
   onMount(async () => {
-    if (!hashTracks) {
+    if (!artIndex) {
       let res = await fetch(ALBUM_ART_URL);
       res = await res.json();
       art.set(res);
@@ -28,9 +28,9 @@
   });
 
   const getArt = id => {
-    for (const [key, value] of Object.entries(hashTracks)) {
+    for (const [key, value] of Object.entries(artIndex)) {
       if (value.includes(id)) {
-        return hashArt[key];
+        return key;
       }
     }
   };
@@ -105,7 +105,7 @@
   {#each results as song (song.id)}
     <Song
       {song}
-      art={!!hashTracks && getArt(song.id)}
+      art={!!artIndex && getArt(song.id)}
       playing={song.id === trackId} />
   {/each}
 </div>
