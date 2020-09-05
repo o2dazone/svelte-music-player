@@ -1,6 +1,5 @@
 <script>
   export let art;
-  export let size = 70;
 </script>
 
 <style lang="scss">
