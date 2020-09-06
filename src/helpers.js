@@ -2,8 +2,9 @@
 //   'http://d2phn2ea0nqfsq.cloudfront.net/api/musicIndex.json';
 export const INDEX_URL = '../index.json';
 export const ALBUM_ART_URL = '../art.json';
-export const STREAM_URL =
-  'https://xkjifuezph.execute-api.us-east-1.amazonaws.com/prod/o2m-getStreamUrl?id=';
+// export const STREAM_URL =
+//   'https://xkjifuezph.execute-api.us-east-1.amazonaws.com/prod/o2m-getStreamUrl?id=';
+export const STREAM_URL = '../../music-indexer/songs';
 export const STOP_WORDS = ['a', 'the', 'of', 'is'];
 export const REPLACE_WEIRD_CHARACTERS = /-|&|\//g;
 export const REPLACE_MORE_WEIRD_CHARACTERS = /'|\(|\)|\.|!/g;
