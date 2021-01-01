@@ -7,7 +7,7 @@
     REPLACE_MORE_WEIRD_CHARACTERS,
     REPLACE_WEIRD_CHARACTERS,
     ALBUM_ART_URL,
-    TRACK_ID_RE
+    TRACK_ID_RE,
   } from 'helpers';
 
   let isShared = false;

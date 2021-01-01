@@ -27,9 +27,6 @@
 </style>
 
 <div class="container">
-  <h1>
-    o2
-    <span>music</span>
-  </h1>
+  <h1>o2 <span>music</span></h1>
   <SearchBox />
 </div>
