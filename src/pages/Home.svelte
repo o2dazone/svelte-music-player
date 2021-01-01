@@ -1,5 +1,4 @@
 <script>
-  import { onMount } from 'svelte';
   import Header from 'components/Header';
   import Footer from 'components/Footer';
   import Results from 'components/Results';

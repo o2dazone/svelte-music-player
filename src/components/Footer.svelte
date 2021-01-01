@@ -1,6 +1,5 @@
 <script>
   import Share from 'components/Share';
-  import { onMount, onDestroy } from 'svelte';
   import { getStreamUrl, makeDurationFromMs } from 'helpers';
   import { index, appState } from 'stores';
 

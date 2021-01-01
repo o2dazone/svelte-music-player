@@ -6,7 +6,6 @@
   import {
     REPLACE_MORE_WEIRD_CHARACTERS,
     REPLACE_WEIRD_CHARACTERS,
-    STOP_WORDS,
     ALBUM_ART_URL,
     TRACK_ID_RE
   } from 'helpers';
