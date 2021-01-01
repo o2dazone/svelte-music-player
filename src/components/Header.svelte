@@ -1,5 +1,5 @@
 <script>
-  import SearchBox from 'components/SearchBox';
+  import SearchBox from '@components/SearchBox.svelte';
 </script>
 
 <style lang="scss">

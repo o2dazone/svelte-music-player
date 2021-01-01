@@ -1,5 +1,5 @@
-import Home from 'pages/Home';
-import Landing from 'pages/Landing';
+import Home from './pages/Home.svelte';
+import Landing from './pages/Landing.svelte';
 
 const routes = {
   '/': Landing,

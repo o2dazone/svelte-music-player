@@ -1,7 +1,7 @@
 <script>
-  import AlbumArt from 'components/AlbumArt';
-  import { makeDurationFromMs } from 'helpers';
-  import { appState } from 'stores';
+  import AlbumArt from '@components/AlbumArt.svelte';
+  import { makeDurationFromMs } from '../helpers';
+  import { appState } from '../stores';
 
   export let playing = false;
   export let song;

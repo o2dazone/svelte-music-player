@@ -7,6 +7,7 @@ import alias from '@rollup/plugin-alias';
 import { terser } from 'rollup-plugin-terser';
 import typescript from '@rollup/plugin-typescript';
 import css from 'rollup-plugin-css-only';
+import path from 'path';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -33,12 +34,9 @@ export default {
     typeCheck(),
     alias({
       resolve: ['.svelte', '.js'],
-      entries: [
-        { find: /^components\/(.*)/, replacement: 'src/components/$1.svelte' },
-        { find: /^pages\/(.*)/, replacement: 'src/pages/$1.svelte' },
-        { find: 'helpers', replacement: 'src/helpers.js' },
-        { find: 'stores', replacement: 'src/stores.js' },
-      ],
+      entries: {
+        '@components': path.resolve(__dirname, 'src', 'components'),
+      },
     }),
     svelte({
       preprocess: autoPreprocess(),

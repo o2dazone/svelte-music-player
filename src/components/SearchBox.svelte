@@ -1,6 +1,6 @@
 <script>
   import { push } from 'svelte-spa-router';
-  import { appState } from 'stores';
+  import { appState } from '../stores';
 
   export let isFullPage = false;
 

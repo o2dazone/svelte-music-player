@@ -1,7 +1,7 @@
 <script>
-  import Share from 'components/Share';
-  import { getStreamUrl, makeDurationFromMs } from 'helpers';
-  import { index, appState } from 'stores';
+  import Share from '@components/Share.svelte';
+  import { getStreamUrl, makeDurationFromMs } from '../helpers';
+  import { index, appState } from '../stores';
 
   let playing = false;
   let loaded = false;

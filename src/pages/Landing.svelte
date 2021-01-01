@@ -1,6 +1,6 @@
 <script>
-  import SearchBox from 'components/SearchBox';
-  import { index } from 'stores';
+  import SearchBox from '@components/SearchBox.svelte';
+  import { index } from '../stores';
 
   let songIndex;
 

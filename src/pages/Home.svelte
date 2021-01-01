@@ -1,8 +1,8 @@
 <script>
-  import Header from 'components/Header';
-  import Footer from 'components/Footer';
-  import Results from 'components/Results';
-  import { index, appState } from 'stores';
+  import Header from '@components/Header.svelte';
+  import Footer from '@components/Footer.svelte';
+  import Results from '@components/Results.svelte';
+  import { index, appState } from '../stores';
 
   export let params = {};
   const { term } = params;

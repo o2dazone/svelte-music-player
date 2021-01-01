@@ -1,18 +1,18 @@
-<script>
+<script lang="ts">
   import { onMount } from 'svelte';
-  import Song from 'components/Song';
-  import Autoplay from 'components/Autoplay';
-  import { index, art, appState } from 'stores';
+  import Song from '@components/Song.svelte';
+  import Autoplay from '@components/Autoplay.svelte';
+  import { index, art, appState } from '../stores';
   import {
     REPLACE_MORE_WEIRD_CHARACTERS,
     REPLACE_WEIRD_CHARACTERS,
     ALBUM_ART_URL,
     TRACK_ID_RE,
-  } from 'helpers';
+  } from '../helpers';
 
   let isShared = false;
 
-  let artIndex = null;
+  let artIndex: any = null;
 
   art.subscribe(state => {
     artIndex = state;
@@ -34,7 +34,7 @@
     }
   };
 
-  const getResults = query => {
+  const getResults = (query: string) => {
     if (query) {
       // if song is a track id, show only that song and display play button
       if (TRACK_ID_RE.test(query)) {
@@ -49,7 +49,7 @@
         .split(/ +/);
 
       let ids;
-
+      console.log(ids);
       searchWords.forEach(searchWord => {
         ids = !ids
           ? words[searchWord] // single term

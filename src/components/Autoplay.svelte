@@ -1,6 +1,6 @@
 <script>
-  import AlbumArt from 'components/AlbumArt';
-  import { appState } from 'stores';
+  import AlbumArt from '@components/AlbumArt.svelte';
+  import { appState } from '../stores';
 
   export let isShared;
   export let results = [];
