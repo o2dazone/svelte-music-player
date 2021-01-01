@@ -1,20 +1,18 @@
 {
   "extends": "@tsconfig/svelte/tsconfig.json",
-  "include": ["src/**/*", "src/node_modules"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules/*", "__sapper__/*", "public/*"],
   "compilerOptions": {
-    "target": "ESNEXT",
     "lib": ["ESNEXT", "dom"],
     "module": "ESNEXT",
     "moduleResolution": "node",
-
-    "esModuleInterop": true,
+    "allowJs": true,
+    "importsNotUsedAsValues": "remove",
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-
+    "noImplicitAny": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
     "noEmit": true,
     "strictNullChecks": true
   }
